@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1035">
+  <title>Starfall – Space Shooter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="stage" id="stage">
+      <canvas id="game" aria-label="Space shooter game area"></canvas>
+
+      <!-- Heads-up display -->
+      <div class="hud" id="hud" aria-live="off">
+        <div class="hud-item"><span class="hud-label">Score</span><span class="hud-value" id="hud-score">0</span></div>
+        <div class="hud-item"><span class="hud-label">Best</span><span class="hud-value" id="hud-best">0</span></div>
+        <div class="hud-item"><span class="hud-label">Level</span><span class="hud-value" id="hud-level">1</span></div>
+        <div class="hud-item"><span class="hud-label">Lives</span><span class="hud-value hud-lives" id="hud-lives">♥♥♥</span></div>
+        <button class="icon-btn" id="btn-mute" type="button" aria-label="Toggle sound" title="Sound (M)">🔊</button>
+        <button class="icon-btn" id="btn-pause" type="button" aria-label="Pause" title="Pause (P)">⏸</button>
+      </div>
+
+      <div class="banner" id="banner" aria-hidden="true"></div>
+
+      <!-- Start screen -->
+      <section class="overlay" id="screen-start">
+        <h1 class="title">Starfall</h1>
+        <p class="lead">Hold the line. Every wave comes faster than the last.</p>
+        <ul class="help">
+          <li><b>Move</b> Arrow keys or A / D</li>
+          <li><b>Fire</b> Space (hold to keep firing)</li>
+          <li><b>Pause</b> P &nbsp;·&nbsp; <b>Sound</b> M</li>
+          <li class="touch-only"><b>Touch</b> Drag on the screen or use the buttons</li>
+        </ul>
+        <button class="btn" id="btn-start" type="button">Start game</button>
+        <p class="best-line">Best score: <span id="start-best">0</span></p>
+      </section>
+
+      <!-- Pause screen -->
+      <section class="overlay hidden" id="screen-pause">
+        <h2 class="title small">Paused</h2>
+        <button class="btn" id="btn-resume" type="button">Resume</button>
+      </section>
+
+      <!-- Game over screen -->
+      <section class="overlay hidden" id="screen-over">
+        <h2 class="title small">Ship lost</h2>
+        <p class="final-score"><span id="over-score">0</span></p>
+        <p class="lead" id="over-best-line">Best score: <span id="over-best">0</span></p>
+        <p class="new-best hidden" id="over-new-best">New best score!</p>
+        <p class="lead" id="over-stats"></p>
+        <button class="btn" id="btn-restart" type="button">Play again</button>
+      </section>
+    </div>
+
+    <!-- Mobile controls (shown on touch devices) -->
+    <div class="controls" id="controls">
+      <div class="dpad">
+        <button class="ctrl" id="ctrl-left" type="button" aria-label="Move left">◀</button>
+        <button class="ctrl" id="ctrl-right" type="button" aria-label="Move right">▶</button>
+      </div>
+      <button class="ctrl ctrl-fire" id="ctrl-fire" type="button" aria-label="Fire">FIRE</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
